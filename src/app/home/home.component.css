@@ -1,0 +1,24 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: clamp(0px,100%,300px);
+}
+
+ul > a , button{
+  font: unset;
+  padding: 10px 16px  ;
+  border-radius: 32px;
+  cursor: pointer;
+  border: unset;
+}
+
+ul > a {
+  display: list-item;
+}
+
+ul > a:hover , button:hover {
+  background-color: #eeeeff;
+  font-weight: 700;
+}
+

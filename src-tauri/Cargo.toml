@@ -1,22 +1,38 @@
 [package]
-name = "editor"
+name = "typst-editor"
 version = "0.0.0"
-description = ""
-authors = ["Titouan LE DILAVREC", "Tom CHAUVEL", "Vianney HERVÉ"]
-license = "MIT"
-repository = "git@github.com:Cours-ESIR/editor.git"
+description = "A Tauri App"
+authors = ["you"]
+license = ""
+repository = ""
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "=1.5.1", features = [] }
+tauri-build = { version = "1.5", features = [] }
 
 [dependencies]
-tauri = { version = "=1.5.4", features = [] }
-serde = { version = "=1.0", features = ["derive"] }
-serde_json = "=1.0"
+tauri = { version = "1.5", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+typst = { git = "https://github.com/typst/typst" }
+typst-render = { git = "https://github.com/typst/typst" }
+typst-syntax = { git = "https://github.com/typst/typst" }
+typst-svg = { git = "https://github.com/typst/typst" }
+typst-pdf = { git = "https://github.com/typst/typst" }
+comemo = { git = "https://github.com/typst/comemo", rev = "ddb3773" }
+
+tiny-skia = "0.11.3"
+clap = "4.4.18"
+rayon = "1.8.1"
+oxipng = "9.0.0"
+walkdir = "2.4.0"
+unscanny = "0.1.0"
+ecow = "0.2.0"
 
 [features]
-# DO NOT remove this
-custom-protocol = [ "tauri/custom-protocol" ]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
